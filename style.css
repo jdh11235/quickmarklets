@@ -1,10 +1,47 @@
 
 body {
-	background: #ffbf00; /* Amber */
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
 	margin: 0;
+
+	background: #ffbf00;
+	color: #2d2d2d;
+	text-align: center;
+	font-family: sans-serif;
+}
+
+.header {
+	font-family: monospace;
+}
+
+.header a {
+	display: inline-block;
+	padding: 0.5em;
+
+	background: #2d2d2d;
+	color: #ffbf00;
+	text-decoration: none;
+
+	transition: font-size 0.1s;
+}
+
+.header a:hover {
+	font-size: 120%;
+	text-decoration: underline;
+}
+
+.linkbar {
+	font-size: 1.2em;
+}
+
+h1 {
+	font-size: 3em;
+}
+
+.linkbar span {
+/*	font-family: sans-serif;*/
+/*	font-style: italic;*/
 }
