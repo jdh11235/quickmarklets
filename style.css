@@ -29,11 +29,14 @@ body {
 }
 
 .header a:hover {
-	font-size: 120%;
+	font-size: 1.2em;
 	text-decoration: underline;
 }
 
 .linkbar {
+	position: relative;
+	height: 2em;
+
 	font-size: 1.2em;
 }
 
@@ -44,4 +47,11 @@ h1 {
 .linkbar span {
 /*	font-family: sans-serif;*/
 /*	font-style: italic;*/
+}
+
+.marklets {
+	padding: 1em;
+	margin: 1em;
+
+	background: #f9f9f9;
 }
