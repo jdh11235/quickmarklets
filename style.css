@@ -73,4 +73,10 @@ h1 {
 	text-align: right;
 }
 
+.instructions {
+	text-align: left;
+}
 
+.instructions li {
+	font-weight: bold;
+}
