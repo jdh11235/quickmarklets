@@ -22,7 +22,7 @@ function rainbow(elementArray){
 }
 
 //sane example
-rainbow([document.body]);
+//rainbow([document.body]);
 
 //disco example
 setInterval(function() {rainbow(document.querySelectorAll('*'))}, 200);
