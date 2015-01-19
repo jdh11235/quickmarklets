@@ -32,12 +32,12 @@ var Prefs = {
 
 	defaults: [
 		{
-			key: 'key1',
-			value: 'value1'
+			key: 'marklet_prefix',
+			value: 'javascript:(function(){'
 		},
 		{
-			key: 'key2',
-			value: 'value2'
+			key: 'marklet_suffix',
+			value: '})()'
 		}
 	]
 
