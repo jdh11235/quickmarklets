@@ -19,7 +19,7 @@ var Marklets = {
 	},
 
 	convert: function(marklet) {
-		//input must always use semicolons and not have single-line comments
+		//input newlines get parsed correctly; do whatever you want with the script!! :D
 		marklet = encodeURIComponent(marklet);
 		marklet = localStorage.marklet_prefix + marklet + localStorage.marklet_suffix;
 		return marklet;
