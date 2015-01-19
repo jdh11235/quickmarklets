@@ -13,9 +13,9 @@ var Marklets = {
 	},
 
 	load_2: function(event, template) {
-		var raw_marklet = event.currentTarget.responseText;
-		console.log(raw_marklet);
-		console.log(template);
+		var marklet = event.currentTarget.responseText;
+		marklet = Marklets.convert(marklet);
+		template.href = marklet;
 	},
 
 	convert: function(marklet) {
