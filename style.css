@@ -1,13 +1,6 @@
 
 body {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	margin: 0;
-
-	background: #ffbf00;
+	background: #ffbf00; /* amber */
 	color: #2d2d2d;
 	text-align: center;
 	font-family: sans-serif;
@@ -44,16 +37,13 @@ h1 {
 	font-size: 3em;
 }
 
-.linkbar span {
-/*	font-family: sans-serif;*/
-/*	font-style: italic;*/
-}
-
 .content {
 	padding: 1em;
-	margin: 1em inherit;
+	margin: 2em inherit;
 
 	background: #f9f9f9;
+	box-shadow: 0.25em 0.25em 0.1em 0 #2d2d2d;
+	border: 0.1em solid #2d2d2d;
 }
 
 #marklets a {
@@ -62,6 +52,8 @@ h1 {
 
 	background: teal;
 	color: #f9f9f9;
+
+/*	transition: box-shadow 0.1s;*/
 }
 
 #marklets p {
@@ -69,7 +61,6 @@ h1 {
 }
 
 #marklets {
-	/* center #marklets itself (it needs width that auto fits to content) */
 	text-align: right;
 }
 
@@ -79,4 +70,60 @@ h1 {
 
 .instructions li {
 	font-weight: bold;
+}
+
+.inline {
+	display: inline-block;
+}
+
+#filedrag {
+	padding: 1em;
+	border-radius: 1em;
+
+	background: #ececec;
+	box-shadow: inset 0 0 0.4em 0.2em #2d2d2d;
+
+	transition: box-shadow 0.25s;
+}
+
+.good {
+	box-shadow: inset 0 0 0.4em 0.2em teal !important;
+}
+
+.bad {
+	box-shadow: inset 0 0 0.4em 0.2em maroon !important;
+}
+
+#fileinfo {
+	margin: 4em;
+
+	font-family: monospace;
+}
+
+#filepicker {
+	position: fixed;
+	width: 0;
+	height: 0;
+	z-index: -1;
+}
+
+#filedrag div {
+	display: inline-block;
+}
+
+#filebutton {
+	padding: 0.5em;
+	border-radius: 0.5em;
+
+	cursor: pointer;
+	color: teal;
+	border: 0.1em solid teal;
+}
+
+#filebutton:hover {
+	text-decoration: underline;
+}
+
+#marklets a:hover {
+	box-shadow: 0.1em 0.1em 0.1em 0 #2d2d2d;
 }
