@@ -61,31 +61,60 @@ var Prefs = {
 };
 
 
-var Uploader = {
+var Customizer = {
+
+	display: function(marklet, label) {
+		Customizer.$custom_marklet.href = Marklets.convert(marklet);
+		Customizer.$custom_label.value = '';
+		Customizer.$custom_label.placeholder = label;
+		Customizer.syncLabel();
+		Customizer.$custom_label.addEventListener('input', Customizer.syncLabel);
+		Customizer.$custom_display.removeAttribute('hidden');
+		Customizer.$custom_label.focus();
+	},
+
+	syncLabel: function() {
+		var input = Customizer.$custom_label.value;
+		var default_label = Customizer.$custom_label.placeholder;
+		if (!input) {
+			input = default_label;
+		}
+		Customizer.$custom_marklet.innerHTML = input;
+	},
 
 	process: function(file) {
 		if (file) {
 			console.log(file);
 			if (file.type === 'text/javascript') {
-				Uploader.$fileinfo.innerHTML = file.name;
-			} else {
-				alert('ERROR: ' + file.name + ' is ' + (file.type === '' ? 'unknown' : file.type) + ' - it should be JavaScript (.js)');
-			}
 
+				Customizer.$fileinfo.innerHTML = file.name;
+				var reader = new FileReader();
+				reader.onload = function(event) {
+					var text = event.currentTarget.result;
+					Customizer.display(text, file.name);
+				};
+				reader.readAsText(file);
+
+			} else {
+				alert('Rejected! ' + file.name + ' is type: "' + (file.type === '' ? 'unknown' : file.type) + '"\nYou need a JavaScript file (.js)');
+			}
 		}
 	},
 
 	setup: function() {
-		Uploader.$filedrag = document.getElementById('filedrag');
-		Uploader.$filepicker = document.getElementById('filepicker');
-		Uploader.$fileinfo = document.getElementById('fileinfo');
-		Uploader.$filebutton = document.getElementById('filebutton');
+		Customizer.$filedrag = document.getElementById('filedrag');
+		Customizer.$filepicker = document.getElementById('filepicker');
+		Customizer.$fileinfo = document.getElementById('fileinfo');
+		Customizer.$filebutton = document.getElementById('filebutton');
+		Customizer.$custom_display = document.getElementById('custom_display');
+		Customizer.$custom_marklet = document.getElementById('custom_marklet');
+		Customizer.$custom_label = document.getElementById('custom_label');
 
-		Uploader.$filedrag.addEventListener('dragover', Uploader.fileDragoverHandler);
-		Uploader.$filedrag.addEventListener('dragleave', Uploader.fileDragleaveHandler);
-		Uploader.$filedrag.addEventListener('drop', Uploader.fileDropHandler);
-		Uploader.$filepicker.addEventListener('change', Uploader.filepickerHandler);
-		Uploader.$filebutton.addEventListener('click', Uploader.triggerfilepicker);
+		Customizer.$filedrag.addEventListener('dragover', Customizer.fileDragoverHandler);
+		Customizer.$filedrag.addEventListener('dragleave', Customizer.fileDragleaveHandler);
+		Customizer.$filedrag.addEventListener('drop', Customizer.fileDropHandler);
+		Customizer.$filepicker.addEventListener('change', Customizer.filepickerHandler);
+		Customizer.$filebutton.addEventListener('click', Customizer.triggerfilepicker);
 	},
 
 	fileDropHandler: function(event) {
@@ -93,12 +122,12 @@ var Uploader = {
 		event.preventDefault();
 		event.target.className = '';
 		var file = event.dataTransfer.files[0];
-		Uploader.process(file);
+		Customizer.process(file);
 	},
 
 	filepickerHandler: function(event) {
 		var file = event.target.files[0];
-		Uploader.process(file);
+		Customizer.process(file);
 	},
 
 	fileDragoverHandler: function(event) {
@@ -107,7 +136,7 @@ var Uploader = {
 		//PROBLEM: never contains any files
 //		var file = event.dataTransfer.files[0];
 //		event.target.className = (file.type === 'text/javascript' ? 'good' : 'bad');
-		Uploader.$filedrag.className = 'good';
+		Customizer.$filedrag.className = 'good';
 	},
 
 	fileDragleaveHandler: function(event) {
@@ -117,8 +146,8 @@ var Uploader = {
 	},
 
 	triggerfilepicker: function() {
-		Uploader.$filepicker.focus();
-		Uploader.$filepicker.click();
+		Customizer.$filepicker.focus();
+		Customizer.$filepicker.click();
 	}
 
 };
@@ -127,7 +156,7 @@ var Uploader = {
 function init() {
 	Prefs.check();
 	Marklets.loadAll();
-	Uploader.setup();
+	Customizer.setup();
 }
 
 

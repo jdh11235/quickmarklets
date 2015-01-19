@@ -52,8 +52,6 @@ h1 {
 
 	background: teal;
 	color: #f9f9f9;
-
-/*	transition: box-shadow 0.1s;*/
 }
 
 #marklets p {
@@ -126,4 +124,20 @@ h1 {
 
 #marklets a:hover {
 	box-shadow: 0.1em 0.1em 0.1em 0 #2d2d2d;
+}
+
+#custom_marklet {
+	padding: 0.5em;
+	margin: 0.5em;
+
+	background: teal;
+	color: #f9f9f9;
+}
+
+#custom_marklet:hover {
+	box-shadow: 0.1em 0.1em 0.1em 0 #2d2d2d;
+}
+
+#custom_label {
+	margin: 1em;
 }
