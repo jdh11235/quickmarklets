@@ -1,6 +1,6 @@
 
 body {
-	background: #ffbf00; /* amber */
+	background: #f4c430;
 	color: #2d2d2d;
 	text-align: center;
 	font-family: sans-serif;
@@ -15,7 +15,7 @@ body {
 	padding: 0.5em;
 
 	background: #2d2d2d;
-	color: #ffbf00;
+	color: #f4c430;
 	text-decoration: none;
 
 	transition: font-size 0.1s;
