@@ -19,7 +19,6 @@ var Marklets = {
 	},
 
 	convert: function(marklet) {
-		//input newlines get parsed correctly; do whatever you want with the script!! :D
 		marklet = encodeURIComponent(marklet);
 		marklet = localStorage.marklet_prefix + marklet + localStorage.marklet_suffix;
 		return marklet;
@@ -29,7 +28,6 @@ var Marklets = {
 		var items = document.querySelectorAll('#marklets a');
 		for (var i = 0; i < items.length; i++) {
 			var item = items[i];
-			//iterate through templates
 			Marklets.load(item);
 		}
 	}
