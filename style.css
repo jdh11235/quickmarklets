@@ -51,7 +51,26 @@ h1 {
 
 .content {
 	padding: 1em;
-	margin: 1em;
+	margin: 1em inherit;
 
 	background: #f9f9f9;
 }
+
+#marklets a {
+	padding: 0.5em;
+	margin: 0.5em;
+
+	background: teal;
+	color: #f9f9f9;
+}
+
+#marklets p {
+	padding: 0.25em inherit;
+}
+
+#marklets {
+	/* center #marklets itself (it needs width that auto fits to content) */
+	text-align: right;
+}
+
+
