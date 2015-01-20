@@ -19,8 +19,15 @@ var Marklets = {
 	},
 
 	convert: function(marklet) {
+		var compressed_prefix = Prefs.get('marklet_prefix_compressed');
+		var compressed_suffix = Prefs.get('marklet_suffix_compressed');
+		var uncompressed_prefix = Prefs.get('marklet_prefix_uncompressed');
+		var uncompressed_suffix = Prefs.get('marklet_suffix_uncompressed');
+
+		marklet = compressed_prefix + marklet + compressed_suffix;
 		marklet = encodeURIComponent(marklet);
-		marklet = localStorage.marklet_prefix + marklet + localStorage.marklet_suffix;
+		marklet = uncompressed_prefix + marklet + uncompressed_suffix;
+
 		return marklet;
 	},
 
@@ -37,26 +44,32 @@ var Marklets = {
 
 var Prefs = {
 
-	check: function() {
-		var items = Prefs.defaults;
-		for (var i = 0; i < items.length; i++) {
-			var item = items[i];
-			if (!localStorage.getItem(item.key)) {
-				localStorage.setItem(item.key, item.value);
-			}
+	get: function(key) {
+		if (localStorage.getItem(key)) {
+			return localStorage.getItem(key);
+		} else {
+			return Prefs.defaults[key];
 		}
 	},
 
-	defaults: [
-		{
-			key: 'marklet_prefix',
-			value: 'javascript:(function(){'
-		},
-		{
-			key: 'marklet_suffix',
-			value: '})()'
+	set: function(key, value) {
+		localStorage.setItem(key, value);
+		console.log('reload to see the change');
+	},
+
+	reset: function() {
+		for (var key in Prefs.defaults) {
+			localStorage.removeItem(key);
 		}
-	]
+		console.log('reload to see the change');
+	},
+
+	defaults: {
+		'marklet_prefix_uncompressed': 'javascript:',
+		'marklet_prefix_compressed': '(function(){',
+		'marklet_suffix_compressed': '})()',
+		'marklet_suffix_uncompressed': ''
+	}
 
 };
 
@@ -154,7 +167,6 @@ var Customizer = {
 
 
 function init() {
-	Prefs.check();
 	Marklets.loadAll();
 	Customizer.setup();
 }
