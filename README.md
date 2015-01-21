@@ -5,4 +5,4 @@ http://git.io/quickmarklets
 
 ___
 
-MIT License.
+Everything in this repository is released under the MIT License.
