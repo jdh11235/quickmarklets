@@ -15,9 +15,9 @@ function randColor() {
 
 function rainbow(elementArray){
 	for (var i = 0; i < elementArray.length; i++) {
-		var elm = elementArray[i];
-		elm.style.backgroundColor = randColor();
-		elm.style.color = randColor();
+		var element = elementArray[i];
+		element.style.backgroundColor = randColor();
+		element.style.color = randColor();
 	}
 }
 

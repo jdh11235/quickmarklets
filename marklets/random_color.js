@@ -14,7 +14,7 @@ function randColor() {
 }
 
 window.addEventListener('click', function(event) {
-	var element = event.toElement;
+	var element = event.target;
 	element.style.backgroundColor = randColor();
 	element.style.color = randColor();
 });

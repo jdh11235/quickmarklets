@@ -1,6 +1,6 @@
 function hider(event) {
 	event.preventDefault();
-	var element = event.toElement;
+	var element = event.target;
 	element.setAttribute('hidden', '');
 	window.removeEventListener('click', hider);
 }
