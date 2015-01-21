@@ -6,6 +6,10 @@ body {
 	font-family: sans-serif;
 }
 
+a {
+	color: #2d2d2d;
+}
+
 .header {
 	font-family: monospace;
 }
