@@ -1,6 +1,6 @@
 
 body {
-	background: #f4c430;
+	background: #ffae42;
 	color: #2d2d2d;
 	text-align: center;
 	font-family: sans-serif;
@@ -15,7 +15,7 @@ body {
 	padding: 0.5em;
 
 	background: #2d2d2d;
-	color: #f4c430;
+	color: #ffae42;
 	text-decoration: none;
 
 	transition: font-size 0.1s;
